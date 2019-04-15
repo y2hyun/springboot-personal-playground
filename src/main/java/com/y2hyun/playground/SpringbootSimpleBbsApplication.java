@@ -1,4 +1,4 @@
-package com.y2hyun.simplebbs;
+package com.y2hyun.playground;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,4 +1,4 @@
-package com.y2hyun.simplebbs.domain;
+package com.y2hyun.playground.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
@@ -14,7 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.y2hyun.simplebbs.domain.enums.BoardType;
+import com.y2hyun.playground.domain.enums.BoardType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

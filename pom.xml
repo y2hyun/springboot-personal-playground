@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.y2hyun</groupId>
-	<artifactId>springboot-simple-bbs</artifactId>
+	<artifactId>springboot-personal-playground</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springboot-simple-bbs</name>
+	<name>springboot-personal-playground</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

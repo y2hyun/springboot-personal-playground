@@ -1,4 +1,4 @@
-package com.y2hyun.simplebbs.service.impl;
+package com.y2hyun.playground.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -7,9 +7,9 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
-import com.y2hyun.simplebbs.domain.Board;
-import com.y2hyun.simplebbs.repository.BoardRepository;
-import com.y2hyun.simplebbs.service.BoardService;
+import com.y2hyun.playground.domain.Board;
+import com.y2hyun.playground.repository.BoardRepository;
+import com.y2hyun.playground.service.BoardService;
 
 @Service
 public class BoardServiceImpl implements BoardService {

@@ -1,1 +1,0 @@
-package com.y2hyun.simplebbs.config;

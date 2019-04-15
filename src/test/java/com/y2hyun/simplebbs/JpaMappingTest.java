@@ -17,12 +17,12 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
 import org.springframework.test.context.junit4.SpringRunner;
 
-import com.y2hyun.simplebbs.domain.Board;
-import com.y2hyun.simplebbs.domain.User;
-import com.y2hyun.simplebbs.domain.enums.BoardType;
-import com.y2hyun.simplebbs.repository.BoardRepository;
-import com.y2hyun.simplebbs.repository.UserRepository;
-import com.y2hyun.simplebbs.service.BoardService;
+import com.y2hyun.playground.domain.Board;
+import com.y2hyun.playground.domain.User;
+import com.y2hyun.playground.domain.enums.BoardType;
+import com.y2hyun.playground.repository.BoardRepository;
+import com.y2hyun.playground.repository.UserRepository;
+import com.y2hyun.playground.service.BoardService;
 
 @RunWith(SpringRunner.class)
 //@DataJpaTest

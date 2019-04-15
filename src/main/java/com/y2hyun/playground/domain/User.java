@@ -1,4 +1,4 @@
-package com.y2hyun.simplebbs.domain;
+package com.y2hyun.playground.domain;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;

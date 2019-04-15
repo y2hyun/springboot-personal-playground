@@ -1,4 +1,4 @@
-package com.y2hyun.simplebbs.domain.enums;
+package com.y2hyun.playground.domain.enums;
 
 public enum BoardType {
 

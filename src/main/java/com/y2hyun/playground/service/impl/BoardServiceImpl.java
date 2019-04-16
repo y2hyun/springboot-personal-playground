@@ -1,6 +1,5 @@
 package com.y2hyun.playground.service.impl;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
@@ -11,11 +10,13 @@ import com.y2hyun.playground.domain.Board;
 import com.y2hyun.playground.repository.BoardRepository;
 import com.y2hyun.playground.service.BoardService;
 
+import lombok.RequiredArgsConstructor;
+
+@RequiredArgsConstructor
 @Service
 public class BoardServiceImpl implements BoardService {
 
-	@Autowired
-	private BoardRepository boardRepository;
+	private final BoardRepository boardRepository;
 	
 	@Override
 	public Page<Board> searchBoardList(int pageNo, int pageSize) {
@@ -26,7 +27,7 @@ public class BoardServiceImpl implements BoardService {
 			pageSize = DEFAULT_PAGE_SIZE;
 		}
 		
-		Pageable pageable = PageRequest.of(pageNo -1, pageSize, Sort.by("createDate").descending());
+		Pageable pageable = PageRequest.of(pageNo -1, pageSize, Sort.by(Sort.Order.desc("createDate"), Sort.Order.desc("boardId")));
 		return boardRepository.findAll(pageable);
 	}
 

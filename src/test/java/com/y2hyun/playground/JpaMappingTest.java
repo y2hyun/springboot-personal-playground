@@ -1,4 +1,4 @@
-package com.y2hyun.simplebbs;
+package com.y2hyun.playground;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -13,8 +13,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.data.domain.Page;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.y2hyun.playground.domain.Board;
@@ -22,11 +21,9 @@ import com.y2hyun.playground.domain.User;
 import com.y2hyun.playground.domain.enums.BoardType;
 import com.y2hyun.playground.repository.BoardRepository;
 import com.y2hyun.playground.repository.UserRepository;
-import com.y2hyun.playground.service.BoardService;
 
 @RunWith(SpringRunner.class)
-//@DataJpaTest
-@SpringBootTest
+@DataJpaTest
 public class JpaMappingTest {
 	
 	@Autowired
@@ -34,10 +31,6 @@ public class JpaMappingTest {
 	
 	@Autowired
 	private BoardRepository boardRepository;
-	
-	@Autowired
-	private BoardService boardService;
-
 	
 	private final String testEmail = "test@test.com";
 	
@@ -91,14 +84,6 @@ public class JpaMappingTest {
 		
 		Board noBoard = this.boardRepository.findById(4L).orElse(null);
 		assertNull(noBoard);
-		
-		
-		Page<Board> result = boardService.searchBoardList(2, 2);
-		assertEquals(result.getNumber(), 1); // 現在ページ （0から）
-		assertEquals(result.getTotalElements(), 3); // 全体データ数
-		assertEquals(result.getTotalPages(), 2); // 全体ページ数
-		assertEquals(result.getNumberOfElements(), 1); // 現在ページのデータ数
-		assertEquals(result.getSize(), 2); // ページのデータ数
 	}
 	
 }

@@ -1,7 +1,5 @@
 package com.y2hyun.playground.service;
 
-import java.util.List;
-
 import org.springframework.data.domain.Page;
 
 import com.y2hyun.playground.domain.Board;

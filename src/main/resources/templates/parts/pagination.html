@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+  integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+<title>Spring Boot Playground Home</title>
+</head>
+<body>
+  <div th:fragment="pagination(list, link, pnSize)">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination justify-content-center" th:with="startNo=${(list.number / pnSize) * pnSize + 1} , endNo=${list.totalPages > startNo -1 + pnSize} ? ${startNo -1 + pnSize} : ${list.totalPages}">
+        <li class="page-item" th:if="${list.number + 1 > pnSize}">
+          <a class="page-link" th:href="@{${link}(page=${list.number + 1 - pnSize})}" aria-label="Previous"><span aria-hidden="true">&laquo;</span><span class="sr-only">Previous</span></a>
+        </li>
+
+        <li th:each="page : ${#numbers.sequence(startNo, endNo)}" class="page-item" th:classappend="${page == list.number+1 ? 'active' : ''}" >
+          <a class="page-link" th:href="@{${link}(page=${page})}" th:text="${page}"></a>
+        </li>
+
+        <li class="page-item" th:if="${list.totalPages > endNo}">
+          <a class="page-link" th:href="@{${link}(page=${endNo + 1})}" aria-label="Next"><span aria-hidden="true">&raquo;</span><span class="sr-only">Next</span></a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</body>
+</html>

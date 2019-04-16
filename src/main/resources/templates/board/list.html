@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"/>
+<title>Spring Boot Playground Home</title>
+</head>
+<body>
+  <div th:replace="parts/header::header('board')"></div>
+  <div class="container">
+    <div class="page-header">
+      <h2>一覧</h2>
+    </div>
+    <div class="float-right">
+      <a th:href="@{/board/add}" class="btn btn-primary">登録</a>
+    </div>
+    <table class="table table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">種類</th>
+          <th scope="col">タイトル</th>
+          <th scope="col">作成日時</th>
+          <th scope="col">更新日時</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="board : ${boardList}">
+          <td th:text="${board.boardId}"></td>
+          <td th:text="${board.boardType.value}"></td>
+          <td th:text="${board.title}"></td>
+          <td th:text="${board.createDate} ? ${#temporals.format(board.createDate, 'yyyy/MM/dd HH:mm')} : ''"></td>
+          <td th:text="${board.updateDate} ? ${#temporals.format(board.updateDate, 'yyyy/MM/dd HH:mm')} : ''"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div th:replace="parts/pagination::pagination (list = ${boardList}, link = '/board', pnSize=7)"></div>
+  </div>
+</body>
+</html>

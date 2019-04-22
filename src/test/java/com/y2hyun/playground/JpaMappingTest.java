@@ -18,7 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import com.y2hyun.playground.domain.Board;
 import com.y2hyun.playground.domain.User;
-import com.y2hyun.playground.domain.enums.BoardType;
+import com.y2hyun.playground.domain.enums.BoardEnums.BoardType;
 import com.y2hyun.playground.repository.BoardRepository;
 import com.y2hyun.playground.repository.UserRepository;
 
@@ -48,7 +48,7 @@ public class JpaMappingTest {
 				.title("テストタイトル")
 				.subTitle("サブタイトル")
 				.contents("テストコンテンツ")
-				.boardType(BoardType.free)
+				.boardType(BoardType.FREE)
 				.createDate(LocalDateTime.now())
 				.user(user).build();
 		
@@ -56,7 +56,7 @@ public class JpaMappingTest {
 				.title("テストタイトル2")
 				.subTitle("サブタイトル2")
 				.contents("テストコンテンツ2")
-				.boardType(BoardType.free)
+				.boardType(BoardType.FREE)
 				.createDate(LocalDateTime.now())
 				.user(user).build();
 		
@@ -64,7 +64,7 @@ public class JpaMappingTest {
 				.title("テストタイトル3")
 				.subTitle("サブタイトル3")
 				.contents("テストコンテンツ3")
-				.boardType(BoardType.free)
+				.boardType(BoardType.FREE)
 				.createDate(LocalDateTime.now())
 				.user(user).build();
 		
@@ -80,7 +80,7 @@ public class JpaMappingTest {
 		assertNotNull(boards);
 		assertTrue(boards.size() > 0);
 		assertEquals(boards.get(0).getTitle(), "テストタイトル");
-		assertEquals(boards.get(0).getBoardType(), BoardType.free);
+		assertEquals(boards.get(0).getBoardType(), BoardType.FREE);
 		
 		Board noBoard = this.boardRepository.findById(4L).orElse(null);
 		assertNull(noBoard);

@@ -25,6 +25,11 @@ public class User implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
+	public static final class Status {
+		public static final Character INVALID = '0';
+		public static final Character VALID = '1';
+	}
+	
 	@Id
 	@Column
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,7 +41,7 @@ public class User implements Serializable {
 	@Column
 	private String password;
 	
-	@Column
+	@Column(unique = true)
 	private String email;
 	
 	@Column
@@ -45,4 +50,9 @@ public class User implements Serializable {
 	@Column
 	private LocalDateTime updateDate;
 	
+	@Builder.Default
+	@Column
+	private Character status = Status.VALID;
+	
+
 }

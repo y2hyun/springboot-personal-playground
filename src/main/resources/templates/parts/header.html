@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
 <meta charset="UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
@@ -17,11 +17,12 @@
         <ul class="navbar-nav mr-auto">
           <li class="nav-item" th:classappend="${nav == 'home' || nav == null ? 'active' : ''}"><a class="nav-link" href="#" th:href="@{/}">Home</a></li>
           <li class="nav-item" th:classappend="${nav == 'board' ? 'active' : ''}"><a class="nav-link" href="#" th:href="@{/board}">Board</a></li>
-          <!-- li th:classappend="${page == 'tasks-ld' ? 'active' : ''}"><a href="#" th:href="@{/task-ld}">Tasks (Layout Dialect)</a></li-->
         </ul>
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item" ><a class="nav-link" href="/signin" th:href="@{/signin}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in
-          </a></li>
+          <li class="nav-item" >
+            <a sec:authorize="!isAuthenticated()" class="nav-link" href="/login" th:href="@{/login}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in</a>
+            <a sec:authorize="isAuthenticated()" class="nav-link" href="/logout" th:href="@{/logout}"><span class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign out</a>
+           </li>
           <!-- li th:if="${#authorization.expression('!isAuthenticated()')}"><a href="/signin" th:href="@{/signin}"> <span
               class="glyphicon glyphicon-log-in" aria-hidden="true"></span>&nbsp;Sign in
           </a></li>

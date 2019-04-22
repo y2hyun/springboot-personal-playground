@@ -15,7 +15,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
-import com.y2hyun.playground.domain.enums.BoardType;
+import com.y2hyun.playground.domain.enums.BoardEnums.BoardType;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

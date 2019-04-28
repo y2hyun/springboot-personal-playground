@@ -29,11 +29,11 @@ public class BoardController {
 		
 		model.addAttribute("boardList", boardService.searchBoardList(pageNo, pageSize));
 		
-		return "/board/list";
+		return "board/list";
 	}
 	
 	@GetMapping("add")
 	public String add(Model model) {
-		return "/board/form";
+		return "board/form";
 	}
 }
